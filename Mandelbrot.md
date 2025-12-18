@@ -2,15 +2,24 @@
 
 Bu doküman, `Mandelbrot.f90` programının nasıl çalıştığını, bağımlı olduğu modülleri ve üretilen verinin nasıl görselleştirileceğini açıklar.
 
+## Derleme ve Çalıştırma
+
+Bu örnek modüler olduğu için, ana programla birlikte modülleri de derlemek gerekir:
+
+```sh
+gfortran mandelbrot_types.f90 mandelbrot_constants.f90 mandelbrot_utils.f90 Mandelbrot.f90 -o mandelbrot
+./mandelbrot
+```
+
 ## Fortran Kodunun Açıklaması (`Mandelbrot.f90`)
 
 Bu program, Mandelbrot kümesini hesaplar ve sonucu iki ayrı dosyaya kaydeder.
 
 ```fortran
 program Mandelbrot
-use types, only: dp
-use constants, only: I
-use utils, only: savetxt, linspace, meshgrid
+use mandelbrot_types, only: dp
+use mandelbrot_constants, only: imaginary_unit
+use mandelbrot_utils, only: savetxt, linspace, meshgrid
 implicit none
 
 ! Parametreler ve Değişkenler
@@ -29,7 +38,7 @@ y_min = -1.5_dp; y_max = 1.5_dp
 ! 2. Izgara (Grid) Oluşturma
 call meshgrid(linspace(x_min, x_max, DENSITY), &
     linspace(y_min, y_max, DENSITY), x, y)
-c = x + I*y
+c = x + imaginary_unit*y
 z = c
 fractal = 255 ! Başlangıçta tüm pikselleri "içeride" olarak ayarla
 
@@ -45,7 +54,7 @@ end do
 
 ! 4. Sonuçları Kaydetme
 print *, "Saving..."
-call savetxt("fractal.dat", log(real(fractal, dp)))
+call savetxt("fractal.dat", log(1.0_dp + real(fractal, dp)))
 call savetxt("coord.dat", reshape([x_min, x_max, y_min, y_max], [4, 1]))
 end program
 ```
@@ -65,88 +74,25 @@ end program
 
 ## Gerekli Modüller
 
-`Mandelbrot.f90` programının derlenebilmesi için aşağıdaki üç modülün de oluşturulması gerekir.
+`Mandelbrot.f90` programının derlenebilmesi için aşağıdaki üç modülün de bulunması gerekir.
 
-### 1. `types.f90`
+### 1. `mandelbrot_types.f90`
 
 Bu modül, çift duyarlıklı (`double precision`) sayılar için bir tür (kind) parametresi tanımlar. Bu, programın taşınabilirliğini ve hassasiyet kontrolünü artırır.
 
-```fortran
-! types.f90
-module types
-    implicit none
-    ! Çift duyarlıklı (double precision) reel sayılar için tür parametresi
-    integer, parameter :: dp = kind(0.0d0)
-end module types
-```
+Bu repo içinde bu modül `iso_fortran_env` üzerinden `real64` kullanır.
 
-### 2. `constants.f90`
+### 2. `mandelbrot_constants.f90`
 
 Bu modül, programda kullanılacak sabitleri (örneğin, sanal birim `i`) tanımlar.
 
-```fortran
-! constants.f90
-module constants
-    use types, only: dp
-    implicit none
-    private
-    public :: I
+Bu modül sanal birimi `imaginary_unit` olarak dışarıya açar.
 
-    ! Sanal birim i = sqrt(-1)
-    complex(dp), parameter :: I = (0.0_dp, 1.0_dp)
-end module constants
-```
-
-### 3. `utils.f90`
+### 3. `mandelbrot_utils.f90`
 
 Bu modül, ana programda kullanılan yardımcı alt programları (`linspace`, `meshgrid`, `savetxt`) içerir.
 
-```fortran
-! utils.f90
-module utils
-    use types, only: dp
-    implicit none
-    private
-    public :: linspace, meshgrid, savetxt
-
-contains
-
-    ! Belirli bir aralıkta eşit aralıklı sayılar dizisi oluşturur.
-    function linspace(start, stop, n) result(res)
-        real(dp), intent(in) :: start, stop
-        integer, intent(in) :: n
-        real(dp), dimension(n) :: res
-        integer :: i
-        do i = 1, n
-            res(i) = start + (stop - start) * real(i - 1, dp) / real(n - 1, dp)
-        end do
-    end function linspace
-
-    ! İki 1D diziden bir 2D koordinat ızgarası oluşturur.
-    subroutine meshgrid(x_in, y_in, x_out, y_out)
-        real(dp), dimension(:), intent(in) :: x_in, y_in
-        real(dp), dimension(size(x_in), size(y_in)), intent(out) :: x_out, y_out
-        integer :: i, j
-        do j = 1, size(y_in)
-            do i = 1, size(x_in)
-                x_out(i, j) = x_in(i)
-                y_out(i, j) = y_in(j)
-            end do
-        end do
-    end subroutine meshgrid
-
-    ! Bir 2D reel diziyi metin dosyasına kaydeder.
-    subroutine savetxt(filename, data)
-        character(len=*), intent(in) :: filename
-        real(dp), dimension(:, :), intent(in) :: data
-        integer :: file_unit
-        open(newunit=file_unit, file=filename, status="replace", action="write")
-        write(file_unit, *) data
-        close(file_unit)
-    end subroutine savetxt
-
-end module utils
-```
+Bu modül, `linspace/meshgrid/savetxt` yardımcı rutinlerini içerir. `savetxt` satır satır yazdığı için Python tarafında `numpy.loadtxt` ile okunması kolaydır.
 ---
 
 ## Python ile Görselleştirme

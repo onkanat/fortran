@@ -1,34 +1,39 @@
 program Mandelbrot
-use types, only: dp
-use constants, only: I
-use utils, only: savetxt, linspace, meshgrid
-implicit none
+    use mandelbrot_types, only: dp
+    use mandelbrot_constants, only: imaginary_unit
+    use mandelbrot_utils, only: savetxt, linspace, meshgrid
+    implicit none
 
-integer, parameter :: ITERATIONS = 100
-integer, parameter :: DENSITY = 1000
-real(dp) :: x_min, x_max, y_min, y_max
-real(dp), dimension(DENSITY, DENSITY) :: x, y
-complex(dp), dimension(DENSITY, DENSITY) :: c, z
-integer, dimension(DENSITY, DENSITY) :: fractal
-integer :: n
-x_min = -2.68_dp
-x_max = 1.32_dp
-y_min = -1.5_dp
-y_max = 1.5_dp
+    integer, parameter :: iterations = 100
+    integer, parameter :: density = 1000
+    real(dp) :: x_min, x_max, y_min, y_max
+    real(dp) :: x(density, density), y(density, density)
+    complex(dp) :: c(density, density), z(density, density)
+    integer :: fractal(density, density)
+    integer :: n
 
-call meshgrid(linspace(x_min, x_max, DENSITY), &
-    linspace(y_min, y_max, DENSITY), x, y)
-c = x + I*y
-z = c
-fractal = 255
+    x_min = -2.68_dp
+    x_max =  1.32_dp
+    y_min = -1.5_dp
+    y_max =  1.5_dp
 
-do n = 1, ITERATIONS
-    print "('Iteration ', i0)", n
-    where (abs(z) <= 10) z = z**2 + c
-    where (fractal == 255 .and. abs(z) > 10) fractal = 254 * (n-1) / ITERATIONS
-end do
+    call meshgrid(linspace(x_min, x_max, density), &
+            linspace(y_min, y_max, density), x, y)
 
-print *, "Saving..."
-call savetxt("fractal.dat", log(real(fractal, dp)))
-call savetxt("coord.dat", reshape([x_min, x_max, y_min, y_max], [4, 1]))
-end program
+    c = x + imaginary_unit * y
+    z = c
+    fractal = 255
+
+    do n = 1, iterations
+        print "('Iteration ', i0)", n
+
+        where (abs(z) <= 10.0_dp) z = z**2 + c
+        where (fractal == 255 .and. abs(z) > 10.0_dp) fractal = 254 * (n - 1) / iterations
+    end do
+
+    print *, 'Saving...'
+
+    ! log(0) üretmemek için 1 ekliyoruz (0 -> log(1) = 0)
+    call savetxt('fractal.dat', log(1.0_dp + real(fractal, dp)))
+    call savetxt('coord.dat', reshape([x_min, x_max, y_min, y_max], [4, 1]))
+end program Mandelbrot

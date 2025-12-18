@@ -1,37 +1,69 @@
 program average
-
-    ! Read in some numbers and take the average
-    ! As written, if there are no data points, an average of zero is returned
-    ! While this may not be desired behavior, it keeps this example simple
-
+    ! Dinamik (allocatable) bir dizi okuyup ortalama hesabı yapan örnek.
+    !
+    ! Bu örnek şunları gösterir:
+    ! - allocatable dizi ile dinamik bellek
+    ! - sum/count intrinsics
+    ! - maske (mask) kullanarak koşullu toplama
     implicit none
 
-    real, allocatable :: points(:)
-    integer           :: number_of_points
-    real              :: average_points, positive_average, negative_average
-    average_points   = 0.
-    positive_average = 0.
-    negative_average = 0.
-    write (*,*) "Input number of points to average:"
-    read  (*,*) number_of_points
+    real(kind=8), allocatable :: points(:)
+    integer :: number_of_points
+    integer :: ios
+    character(len=200) :: iomsg
+    real(kind=8) :: average_points
+    real(kind=8) :: positive_average
+    real(kind=8) :: negative_average
 
-    allocate (points(number_of_points))
+    average_points   = 0.0_8
+    positive_average = 0.0_8
+    negative_average = 0.0_8
 
-    write (*,*) "Enter the points to average:"
-    read  (*,*) points
+    write (*,*) 'Ortalaması alınacak veri sayısını girin:'
+    read  (*,*, iostat=ios, iomsg=iomsg) number_of_points
+    if (ios /= 0) then
+        write (*,*) 'Hata: Geçersiz giriş. Detay: ', trim(iomsg)
+        stop 1
+    end if
+    if (number_of_points < 0) then
+        write (*,*) 'Hata: Veri sayısı negatif olamaz.'
+        stop 1
+    end if
+    if (number_of_points == 0) then
+        write (*,*) 'Uyarı: Veri sayısı 0. Ortalamalar 0 olarak raporlanacak.'
+    end if
 
-    ! Take the average by summing points and dividing by number_of_points
-    if (number_of_points > 0) average_points = sum(points) / number_of_points
+    allocate (points(number_of_points), stat=ios, errmsg=iomsg)
+    if (ios /= 0) then
+        write (*,*) 'Hata: Bellek ayrılamadı. Detay: ', trim(iomsg)
+        stop 1
+    end if
 
-    ! Now form average over positive and negative points only
-    if (count(points > 0.) > 0) positive_average = sum(points, points > 0.) / count(points > 0.)
-    if (count(points < 0.) > 0) negative_average = sum(points, points < 0.) / count(points < 0.)
+    if (number_of_points > 0) then
+        write (*,*) 'Ortalaması alınacak sayıları girin:'
+        read  (*,*, iostat=ios, iomsg=iomsg) points
+        if (ios /= 0) then
+            write (*,*) 'Hata: Sayılar okunamadı. Detay: ', trim(iomsg)
+            deallocate (points)
+            stop 1
+        end if
 
-    ! Print result to terminal stdout unit 6
-    write (*,'(a,g12.4)') 'Average = ', average_points
-    write (*,'(a,g12.4)') 'Average of positive points = ', positive_average
-    write (*,'(a,g12.4)') 'Average of negative points = ', negative_average
-    deallocate (points) ! free memory
+        ! Ortalama: sum(points) / N
+        average_points = sum(points) / real(number_of_points, kind=8)
 
+        ! Pozitif/negatif değerler için maske ile ortalama
+        if (count(points > 0.0_8) > 0) then
+            positive_average = sum(points, mask=points > 0.0_8) / real(count(points > 0.0_8), kind=8)
+        end if
+        if (count(points < 0.0_8) > 0) then
+            negative_average = sum(points, mask=points < 0.0_8) / real(count(points < 0.0_8), kind=8)
+        end if
+    end if
+
+    write (*,'(a,g12.4)') 'Ortalama = ', average_points
+    write (*,'(a,g12.4)') 'Pozitiflerin ortalaması = ', positive_average
+    write (*,'(a,g12.4)') 'Negatiflerin ortalaması = ', negative_average
+
+    deallocate (points)
 end program average
 

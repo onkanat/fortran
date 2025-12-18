@@ -1,0 +1,18 @@
+# Fortran derleme çıktıları
+*.o
+*.mod
+*.smod
+*.a
+*.so
+*.dylib
+*.exe
+
+a.out
+
+# macOS
+.DS_Store
+*.dSYM/
+
+# Örnek çıktıları (repo içine yanlışlıkla eklenmesin)
+*.dat
+numbers.txt

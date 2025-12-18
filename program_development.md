@@ -22,7 +22,9 @@ Burada:
 - g = 980 cm/sn^2
 - π = 3.14159
 - L = Sarkacın uzunluğu (cm)
-- α = Yer değiştirme açısı (derece)![sarkaç şekli](/assets/pendulum.jpg)
+- α = Yer değiştirme açısı (derece)
+
+![sarkaç şekli](assets/pendulum.jpg)
 
 g (yerçekimi) ve π sabit olarak tanımlanmalıdır. Formül, daha genel bir durumun
 basitleştirilmiş bir versiyonudur. Bu nedenle, çok büyük, çok küçük veya sıfır açı değerleri için formül doğru sonuçlar
@@ -59,7 +61,7 @@ Bu algoritma, programın mantığını ve akışını açıkça tanımlar. Her a
       ```
     - Değişkenlerin bildirilmesi
       ```fortran
-      real(kind=8) :: L, alpha_deg, alpha_rad, period
+         real(kind=8) :: length_cm, alpha_deg, alpha_rad, period
       ```
 - Girdi istemlerinin oluşturulması
     - Kullanıcıdan L ve α değerlerini isteme
@@ -70,7 +72,7 @@ Bu algoritma, programın mantığını ve akışını açıkça tanımlar. Her a
 - Girdi alma
     - Kullanıcıdan L ve α değerlerini okuma
       ```fortran
-      read *, L
+         read *, length_cm
       read *, alpha_deg
       ```
 - Radian-derece dönüşümü için yardımcı ifade
@@ -81,7 +83,7 @@ Bu algoritma, programın mantığını ve akışını açıkça tanımlar. Her a
 - Periyot hesaplama
     - Formülü kullanarak periyodu hesaplama
       ```fortran
-      period = 2.0_8 * pi * sqrt( (L / g) * (1.0_8 + 0.25_8 * sin(alpha_rad / 2.0_8)**2) )
+         period = 2.0_8 * pi * sqrt( (length_cm / g) * (1.0_8 + 0.25_8 * sin(alpha_rad / 2.0_8)**2) )
       ```   
 - Çıktı görüntüleme
     - Hesaplanan periyodu görüntüleme
@@ -98,19 +100,19 @@ program pendulum
 
   real(kind=8), parameter :: g = 980.0_8                ! yerçekimi (cm/s^2)
   real(kind=8), parameter :: pi = 3.141592653589793_8
-  real(kind=8) :: L           ! sarkacın uzunluğu (cm)
-  real(kind=8) :: alpha_deg   ! yer değiştirme açısı (derece)
-  real(kind=8) :: alpha_rad   ! açı (radyan)
+   real(kind=8) :: length_cm   ! sarkacın uzunluğu (cm)
+   real(kind=8) :: alpha_deg   ! yer değiştirme açısı (derece)
+   real(kind=8) :: alpha_rad   ! açı (radyan)
   real(kind=8) :: period
 
   ! Kullanıcı istemleri
   print *, 'Sarkacın uzunluğunu (cm) girin:'
-  read  (*,*) L
+   read  (*,*) length_cm
   print *, 'Yer değiştirme açısını (derece) girin:'
   read  (*,*) alpha_deg
 
   ! Girdi doğrulama
-  if (L <= 0.0_8) then
+  if (length_cm <= 0.0_8) then
      print *, 'Hata: Uzunluk pozitif olmalıdır.'
      stop 1
   end if
@@ -119,7 +121,7 @@ program pendulum
   alpha_rad = alpha_deg * (pi / 180.0_8)
 
   ! Periyot hesaplama (formül: 2π sqrt( (L/g) (1 + 1/4 sin^2(α/2)) ))
-  period = 2.0_8 * pi * sqrt( (L / g) * (1.0_8 + 0.25_8 * sin(alpha_rad / 2.0_8)**2) )
+   period = 2.0_8 * pi * sqrt( (length_cm / g) * (1.0_8 + 0.25_8 * sin(alpha_rad / 2.0_8)**2) )
 
   ! Sonucu göster
   write (*,'(A,F8.4,A)') 'Sarkacın periyodu (sn) = ', period, ' '

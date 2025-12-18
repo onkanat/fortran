@@ -21,14 +21,9 @@ Bu komut, yüklü olan `gfortran` derleyicisinin sürüm bilgisini göstermelidi
 
 ## İlk Program: Merhaba Dünya
 
-İşte basit bir "Merhaba Dünya" programı. Bu kod `main.f90` dosyasında mevcuttur.
+Bu repo için ilk örnek olarak dinamik (allocatable) dizi kullanarak ortalama alma örneği seçilmiştir. Kod `main.f90` dosyasındadır.
 
-```fortran
-! main.f90
-program hello
-  print *, "Hello, World!"
-end program hello
-```
+Detaylı açıklama: [main.md](./main.md) (kod: [main.f90](./main.f90))
 
 **Programı Derleme ve Çalıştırma**
 
@@ -48,23 +43,82 @@ Ekran çıktısı olarak `"Hello, World!"` görmelisiniz.
 
 Bu depodaki daha karmaşık örnekleri inceleyebilirsiniz.
 
-- **[MERGE Fonksiyonu](./demo_merge.f90)**: `demo_merge.f90` dosyası, Fortran'ın güçlü `MERGE` içsel fonksiyonunun skaler ve dizi tabanlı kullanımını gösterir. Bu fonksiyon, bir maskeye dayalı olarak iki değer veya dizi arasından eleman seçimi yapmak için kullanılır. Detaylı açıklaması [demo_merge.md](./demo_merge.md) dosyasında bulunmaktadır.
-- **[ABS Fonksiyonu](./demo_abs.f90)**: `demo_abs.f90` dosyası, `ABS` fonksiyonunun tamsayı, gerçek ve karmaşık sayılarla nasıl kullanıldığını gösterir. Detaylı açıklaması [demo_abs.md](./demo_abs.md) dosyasında bulunmaktadır.
-- **[Mandelbrot Seti](./Mandelbrot.f90)**: `Mandelbrot.f90` programı, modüler bir yaklaşımla Mandelbrot kümesini hesaplar. Açıklaması ve gerekli yardımcı modüller [Mandelbrot.md](./Mandelbrot.md) dosyasında detaylandırılmıştır.
-- **[Sinüs Fonksiyonu Üretimi](./sine.f90)**: `sine.f90` dosyası, `neural-fortran` kütüphanesini kullanarak bir sinir ağının sinüs fonksiyonunu nasıl öğrendiğini gösterir. Detaylı açıklaması [sine.md](./sine.md) dosyasında bulunmaktadır.
-- **[Kare Fonksiyonu](./square_function.md)**: `square_function.md` dosyası, Fortran fonksiyonlarının yapısını ve kullanımını gösteren örnek bir kare alma fonksiyonu içerir. Fonksiyonların nasıl tanımlandığı, nasıl çağrıldığı ve örnek bir uygulama ile açıklaması yer almaktadır.
-- **[Kesme Formülleri](./cutting_formules.f90)**: `cutting_formules.f90` dosyası, talaşlı imalatta kesme hızı (Vc) hesaplamasını gösterir. Detaylı açıklaması [cutting_formules.md](./cutting_formules.md) dosyasında bulunmaktadır.
-- **[Gelişmiş Kesme Formülleri](./cutting_formules_enhanced.f90)**: `cutting_formules_enhanced.f90` dosyası, kesme hızı ve devir sayısı arasında çift yönlü hesaplama yapabilen gelişmiş bir versiyondur. Detaylı açıklaması [cutting_formules_enhanced.md](./cutting_formules_enhanced.md) dosyasında bulunmaktadır.
-- **[İkinci Dereceden Denklem Çözücü](./quadratic.f90)**: `quadratic.f90` dosyası, ayırt edici (Δ) değerine göre `if/else if/else` ile dallanarak ikinci dereceden denklemin gerçek/karmaşık köklerini hesaplar. Detaylı açıklaması [quadratic.md](./quadratic.md) dosyasında bulunmaktadır.
-- **[Not Harfi Atama](./grades.f90)**: `grades.f90` dosyası, üç sınav notunun ortalamasına göre `select case` ile harf notu atar (aralık kullanımı). Detaylı açıklaması [grades.md](./grades.md) dosyasında bulunmaktadır.
-- **[Karelerin Toplamı vs. Toplamın Karesi](./sos_difference.f90)**: `sos_difference.f90` dosyası, sayaç kontrollü `do` döngüsüyle iki farklı toplamı hesaplayıp aralarındaki farkı bulur. Detaylı açıklaması [sos_difference.md](./sos_difference.md) dosyasında bulunmaktadır.
-- **[Tarih Doğrulama](./date_check.f90)**: `date_check.f90` dosyası, koşul kontrollü döngü + `cycle/exit` kullanarak kullanıcıdan geçerli tarih bilgisi alır; ay bazlı gün sınırını `select case` ile belirler. Detaylı açıklaması [date_check.md](./date_check.md) dosyasında bulunmaktadır.
-- **[Fortran Temel Kavramları](./fortran_basic_elements.md)**: `fortran_basic_elements.md` dosyası, Fortran programlama dilinin temel öğelerini ve yapısını açıklayan bir rehberdir. Değişken tanımlamaları, veri tipleri, kontrol yapıları ve temel giriş/çıkış işlemleri gibi konuları kapsar.
-- **[Program Geliştirme Notları](./program_development.md)**: `program_development.md` dosyası, program geliştirme yaklaşımını adım adım özetler; özellikle seçim ifadeleri (`if/select case`), güvenli girdi okuma (`iostat/iomsg`) ve döngüler (`do`, `do while`, `exit/cycle`) konularını örnekler ve alıştırmalarla açıklar.
+- **[Dinamik Dizi ile Ortalama Alma](./main.md)** (kod: [main.f90](./main.f90)): `allocatable`, `allocate`, `sum/count` ve maske kullanımı.
 
-- **[Fortran book code:] (https://github.com/modern-fortran/)**
-- **[Fortran-lang:] (https://fortran-lang.org/)**
-- **[Fortran-lang GitHub:] (https://github.com/fortran-lang)**
+### Temel dil özellikleri ve içsel fonksiyonlar
+
+- **[MERGE Fonksiyonu](./demo_merge.md)** (kod: [demo_merge.f90](./demo_merge.f90)): `MERGE` içsel fonksiyonu (skaler + dizi), maske ile seçim.
+- **[ABS Fonksiyonu](./demo_abs.md)** (kod: [demo_abs.f90](./demo_abs.f90)): `ABS` fonksiyonu (tamsayı/gerçek/karmaşık).
+
+### Metin (string) işleme
+
+- **[Metin Ayrıştırma](./string_parsing.md)** (kod: [string_parsing.f90](./string_parsing.f90)): `character(len=:), allocatable`, `trim/adjustl/index`, string içinden `read`.
+
+### Kontrol akışı ve doğrulama
+
+- **[İkinci Dereceden Denklem Çözücü](./quadratic.md)** (kod: [quadratic.f90](./quadratic.f90)): `if/else if/else`, tolerans, gerçek/karmaşık kökler.
+- **[Not Harfi Atama](./grades.md)** (kod: [grades.f90](./grades.f90)): `select case` ve aralık kullanımı.
+- **[Tarih Doğrulama](./date_check.md)** (kod: [date_check.f90](./date_check.f90)): döngü + `exit/cycle` + ay bazlı doğrulama.
+
+### Döngüler
+
+- **[Karelerin Toplamı vs. Toplamın Karesi](./sos_difference.md)** (kod: [sos_difference.f90](./sos_difference.f90)): sayaç kontrollü `do` döngüsü.
+
+### Fonksiyonlar ve prosedürler
+
+- **[Kare Fonksiyonu](./square_function.md)** (kod: [square_function.f90](./square_function.f90)): fonksiyon tanımı ve kullanımı.
+- **[Fonksiyon Örnekleri](./function_examples.md)** (kod: [function_examples.f90](./function_examples.f90)): `contains` ile internal fonksiyonlar.
+- **[Pure/Elemental Fonksiyonlar](./pure_elemental_demo.md)** (kod: [pure_elemental_demo.f90](./pure_elemental_demo.f90)): `pure` ve `elemental` ile dizi üzerinde eleman-bazlı işlem.
+
+### Dosya G/Ç (File I/O)
+
+- **[Güvenli Dosya G/Ç](./robust_file_io.md)** (kod: [robust_file_io.f90](./robust_file_io.f90)): `open(newunit=...)`, `iostat/iomsg`, formatlı yazma ve geri okuma.
+
+## P1: Modüler Programlama ve Daha Modern Yapılar
+
+### `iso_fortran_env` ve komut satırı
+
+- **[`iso_fortran_env` Demo](./iso_fortran_env_demo.md)** (kod: [iso_fortran_env_demo.f90](./iso_fortran_env_demo.f90)): `real64/int32`, `output_unit/error_unit` gibi taşınabilir tanımlar.
+- **[Komut Satırı Argümanları](./command_line_args_demo.md)** (kod: [command_line_args_demo.f90](./command_line_args_demo.f90)): `get_command_argument`, `command_argument_count`.
+
+### Modüller ve generic interface
+
+- **[İstatistik Modülü](./statistics_utils.md)** (kod: [statistics_utils.f90](./statistics_utils.f90)): `module`, `public/private`, `pure`, `generic interface`.
+- **[Modül Kullanımı Demo](./statistics_module_demo.md)** (kod: [statistics_module_demo.f90](./statistics_module_demo.f90)): modülü kullanarak `mean/stddev` çağırma.
+
+### Derived type (OOP temelleri)
+
+- **[Measurement Series](./measurement_series_demo.md)** (kod: [measurement_series_demo.f90](./measurement_series_demo.f90)): `type`, `allocatable` bileşen, type-bound procedures.
+
+### Uygulamalı örnekler
+
+- **[Kesme Formülleri](./cutting_formules.md)** (kod: [cutting_formules.f90](./cutting_formules.f90)): kesme hızı (Vc) hesaplama.
+- **[Gelişmiş Kesme Formülleri](./cutting_formules_enhanced.md)** (kod: [cutting_formules_enhanced.f90](./cutting_formules_enhanced.f90)): Vc↔rpm çift yönlü hesap.
+- **[Sarkacın Periyodu](./pendulum.md)** (kod: [pendulum.f90](./pendulum.f90)): periyot hesabı.
+
+### Harici kütüphaneler
+
+- **[Sinüs Fonksiyonu Üretimi](./sine.md)** (kod: [sine.f90](./sine.f90)): `neural-fortran` ile sinir ağı örneği.
+
+### İleri konular (taslak)
+
+- **[Mandelbrot Seti](./Mandelbrot.md)** (kod: [Mandelbrot.f90](./Mandelbrot.f90)): modüler tasarım örneği (modüller: [mandelbrot_types.f90](./mandelbrot_types.f90), [mandelbrot_constants.f90](./mandelbrot_constants.f90), [mandelbrot_utils.f90](./mandelbrot_utils.f90)).
+
+### P2: Seçilmiş ileri konular
+
+- **[`do concurrent` Demo](./do_concurrent_demo.md)** (kod: [do_concurrent_demo.f90](./do_concurrent_demo.f90)): paralelleştirilebilir bağımsız döngü deseni.
+- **[`iso_c_binding` ile C çağrısı](./iso_c_binding_add.md)** (kod: [iso_c_binding_add.f90](./iso_c_binding_add.f90)): C fonksiyonu çağırma (C dosyası: `iso_c_binding_add.c`).
+
+### Rehberler
+
+- **[Fortran Temel Kavramları](./fortran_basic_elements.md)**: dilin temel öğeleri.
+- **[Program Geliştirme Notları](./program_development.md)**: seçim ifadeleri, güvenli girdi, döngüler ve alıştırmalar.
+
+### Kaynaklar
+
+- [Modern Fortran (GitHub)](https://github.com/modern-fortran/)
+- [Fortran-lang](https://fortran-lang.org/)
+- [Fortran-lang GitHub](https://github.com/fortran-lang)
 ## Çalışma Notları Taslağı
 
 Aşağıdaki taslağı kullanarak kendi notlarınızı tutabilirsiniz.
