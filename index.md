@@ -52,6 +52,8 @@ Bu depodaki daha karmaşık örnekleri inceleyebilirsiniz.
 
 ### Metin (string) işleme
 
+- **[Karakterler ve Stringler](./characters_and_strings.md)**: karakter sabitleri, alt diziler, karşılaştırmalar ve içsel fonksiyonlar.
+- **[Case Converter](./case_converter.md)** (kod: [case_converter.f90](./case_converter.f90)): küçük harfleri büyük harfe dönüştürme örneği.
 - **[Metin Ayrıştırma](./string_parsing.md)** (kod: [string_parsing.f90](./string_parsing.f90)): `character(len=:), allocatable`, `trim/adjustl/index`, string içinden `read`.
 
 ### Kontrol akışı ve doğrulama
