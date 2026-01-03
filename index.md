@@ -1,5 +1,4 @@
-# Fortran Çalışma Notları
-# Fortran Çalışma Notları
+
 ---
 layout: page
 title: "Fortran Çalışma Notları"
