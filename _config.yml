@@ -1,0 +1,9 @@
+title: "Modern Fortran Çalışma Notları"
+description: "Türkçe Modern Fortran örnekleri ve notları"
+theme: minima
+markdown: kramdown
+exclude:
+  - runs
+  - runs/cut
+  - "*.mod"
+  - assets/fortranv3.pdf
