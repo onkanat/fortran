@@ -50,6 +50,11 @@ Bu depodaki daha karmaşık örnekleri inceleyebilirsiniz.
 - **[MERGE Fonksiyonu](./demo_merge.md)** (kod: [demo_merge.f90](./demo_merge.f90)): `MERGE` içsel fonksiyonu (skaler + dizi), maske ile seçim.
 - **[ABS Fonksiyonu](./demo_abs.md)** (kod: [demo_abs.f90](./demo_abs.f90)): `ABS` fonksiyonu (tamsayı/gerçek/karmaşık).
 
+### Diziler
+
+- **[Tek Boyutlu Diziler](./single_dimension_arrays.md)**: tek boyutlu dizi bildirimi, okuma/yazma, min/max/ortalama/standart sapma örneği.
+- **[Standard Deviation Programı](./standard_deviation.md)** (kod: [standard_deviation.f90](./standard_deviation.f90)): dosyadan sayıları okuyup temel istatistikleri hesaplayan örnek.
+
 ### Metin (string) işleme
 
 - **[Karakterler ve Stringler](./characters_and_strings.md)**: karakter sabitleri, alt diziler, karşılaştırmalar ve içsel fonksiyonlar.
@@ -75,6 +80,7 @@ Bu depodaki daha karmaşık örnekleri inceleyebilirsiniz.
 ### Dosya G/Ç (File I/O)
 
 - **[Güvenli Dosya G/Ç](./robust_file_io.md)** (kod: [robust_file_io.f90](./robust_file_io.f90)): `open(newunit=...)`, `iostat/iomsg`, formatlı yazma ve geri okuma.
+- **[Dosya İşlemleri Rehberi](./file_operations.md)**: dosya açma, yazma/okuma, rewind/backspace/close ve satır numaralama örneği.
 
 ## P1: Modüler Programlama ve Daha Modern Yapılar
 
