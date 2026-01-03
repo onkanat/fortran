@@ -2,6 +2,8 @@ title: "Modern Fortran Çalışma Notları"
 description: "Türkçe Modern Fortran örnekleri ve notları"
 theme: minima
 markdown: kramdown
+url: "https://onkanat.github.io"
+baseurl: "/fortran"
 exclude:
   - runs
   - runs/cut
