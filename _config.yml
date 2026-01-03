@@ -7,3 +7,10 @@ exclude:
   - runs/cut
   - "*.mod"
   - assets/fortranv3.pdf
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: page
+      lang: tr
