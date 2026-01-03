@@ -1,4 +1,10 @@
 # Fortran Çalışma Notları
+# Fortran Çalışma Notları
+---
+layout: page
+title: "Fortran Çalışma Notları"
+toc: false
+---
 
 Bu belge, Modern Fortran öğrenirken alınan notlar ve örnekler için bir başlangıç noktasıdır. Projenin genel yapısı ve standartları için [GEMINI.md](./GEMINI.md) dosyasına göz atabilirsiniz.
 
