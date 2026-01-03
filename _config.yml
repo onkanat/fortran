@@ -1,6 +1,6 @@
 title: "Modern Fortran Çalışma Notları"
 description: "Türkçe Modern Fortran örnekleri ve notları"
-theme: minima
+theme: jekyll-theme-primer
 markdown: kramdown
 url: "https://onkanat.github.io"
 baseurl: "/fortran"
@@ -14,5 +14,5 @@ defaults:
       path: ""
       type: "pages"
     values:
-      layout: page
+      layout: default
       lang: tr
