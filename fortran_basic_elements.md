@@ -49,23 +49,23 @@ Aşağıdaki, Fortran 95/2003/2008'de temel veri türleri vardır:
 
 Ayrıca türetilmiş türleri ve işaretçileri de olabilir. Bunlar daha gelişmiş programlar için faydalı olabilir ve daha sonraki bölümlerde açıklanmıştır.
 
-### 4.2.1 Tamsayılara (Integer Numbers)
+### 4.2.1 Tamsayılar (Integer Numbers)
 
 Tamsayı, kesir olmayan tam bir sayıdır; pozitif, negatif veya sıfır olabilir. Örneğin 10, 0, -25 ve 5.148 gibi sayılar tamsayıdır. Tamsayılar insanlar tarafından en tanıdık sayılardır ve matematikte ve bilgisayarlarda önemli bir rol oynarlar. Tüm tamsayılar tam sayıdır, bu yüzden 1 bölü 2 gibi işlemler (1/2) sonucunun tam sayı olması gerektiği için 0 sonucunu verir. Tamsayı bölme işleminde, kesir kısmı yoktur çünkü kesir kısmı budanır.
 
-### 4.2.2 Reel Sayılara (Real Numbers)
+### 4.2.2 Reel Sayılar (Real Numbers)
 
 Reel sayılar, kesir kısmını da içerir, hatta kesir kısmı 0 olsa bile. Reel sayılar, yani kayan noktalı sayılar, hem rasyonel hem de irrasyonel sayılardan oluşur. İrrasyonel sayılar veya sürekli ondalık açılım olan sayılar örneğin π, √2 ve e'dir. Diğer örnekler ise 1.5, 5.0 ve 3.14159'dür. Fortran 95/2003/2008, 5. olarak 5.0 kabul eder. Bu metindeki tüm örnekler netlik sağlamak için "0." olarak verilmiştir.
 
-### 4.2.3 Karmaşık Sayılara (Complex Numbers)
+### 4.2.3 Karmaşık Sayılar (Complex Numbers)
 
 Matematikte, karmaşık bir sayı reel bir sayı ve sanal bir sayının bileşimidir. a ve b reel sayılardır ve i, i2 = -1.0 özellikli standsart sanal bir birimdir; a + bi formunda yazılabilir. Karmaşık sayılar, sıradan reel sayıları içerir ama ekstra sayılara eklemeyle genişletilmiş bir şekilde tanımlanır ve bu veri türü yaygın olarak kullanılmaz ama gerektiğinde faydalı olabilir. 
 
-### 4.2.4 Karakterlere (Characters)
+### 4.2.4 Karakterler (Characters)
 
 Karakter, harf, sayısal rakam ya da noktalama işaretidir. Bir string, karakterlerin bir dizisidir. Karakterler ve diziler genellikle tırnak içinde ifade edilir. Örneğin, "Z" büyük harfi bir karakter ve "Hello World" bir dize olarak ifade edilir. Karakterler standart bir format olan ASCII kullanarak gösterilir.
 
-### 4.2.5 Mantıksal Verilere (Logical)
+### 4.2.5 Mantıksal Veriler (Logical)
 Mantıksal, sadece iki değere sahip olabilir: doğru ya da yanlış. Mantıksal değerler bool (boolean) olarak da bilinir. Fortran'da bu değerler resmi olarak .true. veya .false. olarak tanımlanır, bu değerler mantıksal sabitler olarak da bilinir. Doğru ve yanlış sabitlerinin baş ve sonunda nokta (.) karakteri zorunludur.
 
 ## 4.3 Bildirimler (Declarations)
@@ -462,7 +462,7 @@ y = int(x)  ! y = 5 (ondalık kısım atılır)
 
 **Kısacası:** Fortran dönüşümleri güçlüdür ancak hassasiyet ve truncation risklerini bilin; gerekli dönüşümleri açıkça yaparak kesin davranış sağlayın.
 
-## 5.7 Örenek Program (Example Program)
+## 5.7 Örnek Program (Example Program)
 Aşağıdaki program, ifadelerin nasıl kullanılacağını gösteren ivmelenme ve hız hesaplama örneğidir.
 
 ```fortran
