@@ -10,6 +10,8 @@ Güncel notlar ve örnekler için lütfen şu adresi ziyaret edin:
 
 ## Proje rehberleri
 - [Proje Yapısı ve Standartları](./GEMINI.md)
+- [Ajan Yönergeleri ve İş Akışı](./AGENTS.md)
+- [Proje Belleği ve Kod Kataloğu](./MEMORY.md)
 - [Copilot kullanım yönergeleri](./.github/copilot-instructions.md)
 
 ## İlgili kaynaklar

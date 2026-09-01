@@ -11,6 +11,8 @@ Bu proje, Modern Fortran dilini öğrenmek için kişisel bir bilgi tabanı olar
 Proje aşağıdaki dosya ve klasör yapısını benimser:
 
 - **`index.md`**: Projenin ana giriş noktasıdır. Tüm örneklere ve belgelere buradan ulaşılır.
+- **`AGENTS.md` / `agent.md`**: Yapay zeka ajanları için kurallar, şablonlar ve yönergeler.
+- **`MEMORY.md` / `memory.md`**: Projenin kalıcı hafızası, modül kataloğu ve derleme matrisi.
 - **`*.f90` dosyaları**: Fortran kaynak kodunu içerir. Her örnek için ayrı bir `.f90` dosyası bulunur.
 - **`*.md` dosyaları**: Fortran kodunu açıklayan Markdown dosyalarıdır. Her `.f90` dosyasına karşılık gelen bir `.md` dosyası bulunur ve kodun ne yaptığını, nasıl derlendiğini ve kullanıldığını Türkçe olarak açıklar.
 - **`assets/`**: Resimler gibi statik varlıkların saklandığı klasördür.
