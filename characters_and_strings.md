@@ -1,3 +1,6 @@
+---
+tur: kavram
+---
 # Bölüm 11 ► Karakterler ve Stringler (Characters and Strings)
 
 Bu bölüm, Fortran'da karakter sabitleri, karakter değişkenleri, alt diziler, karşılaştırmalar ve yaygın içsel karakter işlemlerini açıklar. Bölüm sonundaki örnek, metindeki küçük harfleri büyük harfe çeviren bir programdır.

@@ -1,3 +1,6 @@
+---
+tur: kavram
+---
 # 7.1 Fortran Program Geliştirme Metodolojisi (Fortran Program Development Methodology)
 
 Program yazma veya geliştirme, net bir metodoloji izlediğinde daha kolaydır. Metodolojideki ana adımlar şunlardır:

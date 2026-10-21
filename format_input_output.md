@@ -1,3 +1,6 @@
+---
+tur: kavram
+---
 # Bölüm 10 ► Formatlı Giriş/Çıkış
 
 Bu bölüm, Fortran'da formatlı giriş ve çıkış işlemlerini detaylı olarak açıklar. Format belirleyicilerinin kullanımı, farklı veri türlerinin nasıl biçimlendirileceği ve gelişmiş I/O teknikleri hakkında bilgi içerir.

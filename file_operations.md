@@ -1,4 +1,6 @@
-
+---
+tur: kavram
+---
 # 12. Dosya İşlemleri (File Operations)
 Fortran'da dosya işlemleri, veri okuma ve yazma için kullanılır. Aşağıda temel dosya işlemleri ve ilgili kavramlar açıklanmıştır.
 

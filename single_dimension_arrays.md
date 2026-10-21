@@ -1,3 +1,6 @@
+---
+tur: kavram
+---
 # Bölüm 13 ► Tek Boyutlu Diziler (Single Dimension Arrays)
 
 Bu bölüm, tek boyutlu dizilerin tanımı, bildirimleri, okuma/yazma işlemleri ve örnek uygulamaları üzerine odaklanır. Örnek program, bir dosyadan sayıları okuyup temel istatistikleri (min, max, toplam, ortalama, standart sapma) hesaplar.

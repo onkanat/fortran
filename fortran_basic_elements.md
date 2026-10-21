@@ -1,3 +1,6 @@
+---
+tur: kavram
+---
 # Temel Elemanlar (Basic Elements)
 
 Fortran ile program yazmaya başlamadan önce temel elemanlar hakkında bilgi sahibi olmak gereklidir.
