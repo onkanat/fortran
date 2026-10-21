@@ -1,18 +1,49 @@
+# VAKIF — onkanat ortak marka dili (W8, 21.10.2026)
+# Görünüm: _layouts/default.html + assets/css/vakif.css (iki eğitim reposunda birebir aynı).
+# Tema satırı (jekyll-theme-primer) W8.3 ile kaldırıldı; tema gem'ine bağımlılık yok.
 title: "Modern Fortran Çalışma Notları"
+brand: "Fortran"
+brand_suffix: "eğitim notları"
+eyebrow: "EĞİTİM · FORTRAN"
 description: "Türkçe Modern Fortran örnekleri ve notları"
-theme: jekyll-theme-primer
-markdown: kramdown
+lang: tr
+repository: onkanat/fortran
+
+# Rouge'un Octave lexer'ı yok; Octave_TR_Doc'ta true. Anahtar seti iki repoda aynı (W8 §2.5).
+highlight_js: false
+
 url: "https://onkanat.github.io"
 baseurl: "/fortran"
+
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    guess_lang: true
+
+plugins:
+  - jekyll-redirect-from
+  - jekyll-optional-front-matter
+  - jekyll-titles-from-headings
+  - jekyll-relative-links
+  - jekyll-sitemap
+
 exclude:
   - runs
   - runs/cut
   - "*.mod"
   - assets/fortranv3.pdf
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - .bundle
+  - _site
+
 defaults:
   - scope:
       path: ""
-      type: "pages"
     values:
       layout: default
       lang: tr

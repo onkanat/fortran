@@ -9,6 +9,14 @@
 
 a.out
 
+# Jekyll / yerel build (W8)
+_site/
+.jekyll-cache/
+.jekyll-metadata
+.sass-cache/
+.bundle/
+vendor/
+
 # macOS
 .DS_Store
 *.dSYM/
