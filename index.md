@@ -1,9 +1,14 @@
+---
 layout: default
 title: "Fortran Çalışma Notları"
-toc: false
+---
 
 Bu belge, Modern Fortran öğrenirken alınan notlar ve örnekler için bir başlangıç noktasıdır. Projenin genel yapısı ve standartları için [GEMINI.md](./GEMINI.md) dosyasına göz atabilirsiniz.
 
+## Rehberler
+
+- **[Fortran Temel Kavramları](./fortran_basic_elements.md)**: dilin temel öğeleri.
+- **[Program Geliştirme Notları](./program_development.md)**: seçim ifadeleri, güvenli girdi, döngüler ve alıştırmalar.
 
 ## macOS için Kurulum
 
@@ -118,11 +123,6 @@ Bu depodaki daha karmaşık örnekleri inceleyebilirsiniz.
 
 - **[`do concurrent` Demo](./do_concurrent_demo.md)** (kod: [do_concurrent_demo.f90](./do_concurrent_demo.f90)): paralelleştirilebilir bağımsız döngü deseni.
 - **[`iso_c_binding` ile C çağrısı](./iso_c_binding_add.md)** (kod: [iso_c_binding_add.f90](./iso_c_binding_add.f90)): C fonksiyonu çağırma (C dosyası: `iso_c_binding_add.c`).
-
-### Rehberler
-
-- **[Fortran Temel Kavramları](./fortran_basic_elements.md)**: dilin temel öğeleri.
-- **[Program Geliştirme Notları](./program_development.md)**: seçim ifadeleri, güvenli girdi, döngüler ve alıştırmalar.
 
 ### Kaynaklar
 
