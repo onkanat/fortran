@@ -88,6 +88,12 @@ Her **kod çifti** aynı adlı iki dosyadır: `ad.md` (anlatım) + `ad.f90` (der
 | [Gelişmiş Kesme Formülleri](./cutting_formules_enhanced.md) | [`cutting_formules_enhanced.f90`](./cutting_formules_enhanced.f90) | Vc↔rpm çift yönlü hesap. |
 | [Sarkacın Periyodu](./pendulum.md) | [`pendulum.f90`](./pendulum.f90) | periyot hesabı. |
 
+### Uygulamalı örnekler (RF ve anten)
+
+| Not | Kod | Ne anlatıyor |
+|---|---|---|
+| [HF Anten Hesabı](./anten_hesap.md) | [`anten_hesap.f90`](./anten_hesap.f90) | tel boyu (λ) oranları, toroid unun (`AL*N^2`), uyumsuzluk kaybı, ferrit çubuk rezonansı, `Q` → kayıp/bant genişliği, çapraz kontrol. |
+
 ### Harici kütüphaneler
 
 | Not | Kod | Ne anlatıyor |
@@ -105,7 +111,7 @@ Her **kod çifti** aynı adlı iki dosyadır: `ad.md` (anlatım) + `ad.f90` (der
 | [`do concurrent` Demo](./do_concurrent_demo.md) | [`do_concurrent_demo.f90`](./do_concurrent_demo.f90) | paralelleştirilebilir bağımsız döngü deseni. |
 | [`iso_c_binding` ile C çağrısı](./iso_c_binding_add.md) | [`iso_c_binding_add.f90`](./iso_c_binding_add.f90) | C fonksiyonu çağırma (C dosyası: `iso_c_binding_add.c`). |
 
-**29 kod çifti.** Her çift derlenip çalıştırılmıştır; notun "Beklenen Çıktı" bloğu gerçek koşudan alınmıştır.
+**30 kod çifti.** Her çift derlenip çalıştırılmıştır; notun "Beklenen Çıktı" bloğu gerçek koşudan alınmıştır.
 
 ## Kavram notları (kod çifti yok) {#kavram-notlari}
 

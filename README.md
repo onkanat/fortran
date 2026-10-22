@@ -22,6 +22,7 @@ Güncel notlar ve örnekler için lütfen şu adresi ziyaret edin:
 - **[Kesme Formülleri](./cutting_formules.md)** (kod: [cutting_formules.f90](./cutting_formules.f90)): kesme hızı (Vc) hesaplama.
 - **[Gelişmiş Kesme Formülleri](./cutting_formules_enhanced.md)** (kod: [cutting_formules_enhanced.f90](./cutting_formules_enhanced.f90)): Vc↔rpm çift yönlü hesap.
 - **[Sarkacın Periyodu](./pendulum.md)** (kod: [pendulum.f90](./pendulum.f90)): periyot hesabı.
+- **[HF Anten Hesabı](./anten_hesap.md)** (kod: [anten_hesap.f90](./anten_hesap.f90)): tel boyu, unun, uyumsuzluk kaybı, ferrit çubuk rezonansı.
 ### Harici kütüphaneler
 - **[Sinüs Fonksiyonu Üretimi](./sine.md)** (kod: [sine.f90](./sine.f90)): `neural-fortran` ile sinir ağı örneği.
 ### İleri konular (taslak)
