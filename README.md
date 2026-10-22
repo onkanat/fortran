@@ -23,6 +23,7 @@ Güncel notlar ve örnekler için lütfen şu adresi ziyaret edin:
 - **[Gelişmiş Kesme Formülleri](./cutting_formules_enhanced.md)** (kod: [cutting_formules_enhanced.f90](./cutting_formules_enhanced.f90)): Vc↔rpm çift yönlü hesap.
 - **[Sarkacın Periyodu](./pendulum.md)** (kod: [pendulum.f90](./pendulum.f90)): periyot hesabı.
 - **[HF Anten Hesabı](./anten_hesap.md)** (kod: [anten_hesap.f90](./anten_hesap.f90)): tel boyu, unun, uyumsuzluk kaybı, ferrit çubuk rezonansı.
+- **[Gezer Köprülü Kren Hesabı](./gezer_kren_hesabi.md)** (kod: [gezer_kren_hesabi.f90](./gezer_kren_hesabi.f90)): tekerlek çapı, yürütme motoru, kiriş sehimi ve gerilmesi.
 ### Harici kütüphaneler
 - **[Sinüs Fonksiyonu Üretimi](./sine.md)** (kod: [sine.f90](./sine.f90)): `neural-fortran` ile sinir ağı örneği.
 ### İleri konular (taslak)

@@ -103,6 +103,7 @@ Bu dosya, projenin tarihsel bağlamını, mimari kararlarını, tüm kod ve dok�
 | **Gelişmiş Kesme Formülleri** | [`cutting_formules_enhanced.f90`](./cutting_formules_enhanced.f90) | [`cutting_formules_enhanced.md`](./cutting_formules_enhanced.md) | Çift yönlü $V_c \leftrightarrow N$ hesaplama, kullanıcı menüsü. |
 | **Sarkacın Periyodu** | [`pendulum.f90`](./pendulum.f90) | [`pendulum.md`](./pendulum.md) | $T = 2\pi\sqrt{L/g}(1 + \frac{1}{4}\sin^2(\alpha/2))$ hesabı. |
 | **HF Anten Hesabı** | [`anten_hesap.f90`](./anten_hesap.f90) | [`anten_hesap.md`](./anten_hesap.md) | Tel boyu $\lambda$ oranları, toroid unun $L = AL\,N^2$, uyumsuzluk kaybı, ferrit çubuk rezonansı, $Q \rightarrow R/BW$, çapraz kontrol. |
+| **Gezer Köprülü Kren** | [`gezer_kren_hesabi.f90`](./gezer_kren_hesabi.f90) | [`gezer_kren_hesabi.md`](./gezer_kren_hesabi.md) | DIN 15070 tekerlek çapı, yürüme/ivme direnci ve motor gücü, kiriş sehimi ($I_z$), eğilme gerilmesi, baş kiriş. |
 | **Sinüs Sinir Ağı** | [`sine.f90`](./sine.f90) | [`sine.md`](./sine.md) | `neural-fortran` harici kütüphanesi ile sinüs yaklaşımı. |
 | **Mandelbrot Tipleri Modülü** | [`mandelbrot_types.f90`](./mandelbrot_types.f90) | [`mandelbrot_types.md`](./mandelbrot_types.md) | Çift duyarlıklı hassasiyet (`dp`) modülü. |
 | **Mandelbrot Sabitleri Modülü** | [`mandelbrot_constants.f90`](./mandelbrot_constants.f90) | [`mandelbrot_constants.md`](./mandelbrot_constants.md) | Sanal birim sabiti ($i = \sqrt{-1}$). |
